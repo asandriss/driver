@@ -21,3 +21,31 @@ let loadPrices ticker =
             System.DateTime.Parse(values.[0]), 
             float values.[6])   // convert the first value to datetime and add the the last (seventh) value in tuple
     prices
+
+type StockAnalyzer (lprices, days) = 
+    let prices =
+        lprices 
+        |> Seq.map snd // only return the second element from the tuple # same as fun (_, p) -> p
+        |> Seq.take days
+
+    static member GetAnalyzers(tickers, days) =
+        tickers
+        |> Seq.map loadPrices
+        |> Seq.map (fun prices -> new StockAnalyzer(prices, days))
+
+    member s.Return = 
+        let lastPrice = prices |> Seq.item 0
+        let startPrice = prices |> Seq.item (days-1)
+
+        lastPrice / startPrice - 1.
+
+    member s.StdDev =
+        let logRets =
+            prices
+            |> Seq.pairwise         // group elements in tuples (0,1),(1,2),(2,3) etc.
+            |> Seq.map (fun(x,y) -> log(x/y))   // calculate logarithm of daily prices
+        let mean = logRets |> Seq.average
+        let sqr x = x*x
+        let var = logRets |> Seq.averageBy (fun r -> sqr(r-mean))
+        
+        sqrt var
