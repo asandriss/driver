@@ -5,3 +5,6 @@ C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\bin\Debu
 C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\bin\Debug\FSharp.Core.xml
 C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\obj\Debug\MathLibrary.dll
 C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\obj\Debug\MathLibrary.pdb
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\bin\Debug\FSharp.PowerPack.dll
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\MathLibrary\bin\Debug\FSharp.PowerPack.xml

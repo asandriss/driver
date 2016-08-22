@@ -14,7 +14,7 @@ namespace Driver
             var analyzers = StockAnalyzer.StockAnalyzer.GetAnalyzers(tickers, 3);
 
             foreach (var a in analyzers)
-                Console.WriteLine("Ret:{0}\t\tStdDev:{1}", a.Return, a.StdDev);
+                Console.WriteLine("Ret:{0}\tStdDev:{1}", a.Return, a.StdDev);
         }
     }
 }

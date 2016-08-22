@@ -2,14 +2,14 @@
     open System.Net
     open System.IO
 
-    let internal loadPrices ticker =
+    let internal loadPrices ticker = async {
         let url = "http://chart.finance.yahoo.com/table.csv?s=" + ticker + "&a=6&b=22&c=2016&d=7&e=22&f=2016&g=d&ignore=.csv"
 
         let req = WebRequest.Create(url)
-        let resp = req.GetResponse()
+        let! resp = req.AsyncGetResponse()
         let stream = resp.GetResponseStream()
         let reader = new StreamReader(stream)
-        let csv = reader.ReadToEnd()
+        let! csv = reader.AsyncReadToEnd()
 
         let prices =
             csv.Split([|'\n'|])
@@ -19,7 +19,7 @@
             |> Seq.map (fun values -> 
                 System.DateTime.Parse(values.[0]), 
                 float values.[6])   // convert the first value to datetime and add the the last (seventh) value in tuple
-        prices
+        return prices }
 
     type StockAnalyzer (lprices, days) = 
         let prices =
@@ -30,6 +30,8 @@
         static member GetAnalyzers(tickers, days) =
             tickers
             |> Seq.map loadPrices
+            |> Async.Parallel
+            |> Async.RunSynchronously
             |> Seq.map (fun prices -> new StockAnalyzer(prices, days))
 
         member s.Return = 

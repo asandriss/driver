@@ -9,3 +9,7 @@ C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\FSh
 C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\MathLibrary.pdb
 C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\MathLibrary.xml
 C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\FSharp.Core.xml
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\FSharp.PowerPack.dll
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\bin\Debug\FSharp.PowerPack.xml
+C:\Users\Fedor\Documents\Visual Studio 2015\Projects\Driver\Driver\obj\Debug\Driver.csproj.Driver.exe.config
