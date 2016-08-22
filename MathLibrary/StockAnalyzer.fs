@@ -1,9 +1,8 @@
-﻿#light
-module StockAnalyzer
+﻿module StockAnalyzer
     open System.Net
     open System.IO
 
-    let loadPrices ticker =
+    let internal loadPrices ticker =
         let url = "http://chart.finance.yahoo.com/table.csv?s=" + ticker + "&a=6&b=22&c=2016&d=7&e=22&f=2016&g=d&ignore=.csv"
 
         let req = WebRequest.Create(url)
@@ -34,8 +33,8 @@ module StockAnalyzer
             |> Seq.map (fun prices -> new StockAnalyzer(prices, days))
 
         member s.Return = 
-            let lastPrice = prices |> Seq.item 0
-            let startPrice = prices |> Seq.item (days-1)
+            let lastPrice = prices |> Seq.nth 0
+            let startPrice = prices |> Seq.nth (days-1)
 
             lastPrice / startPrice - 1.
 

@@ -10,6 +10,11 @@ namespace Driver
     {
         static void Main(string[] args)
         {
+            var tickers = new[] { "msft", "orcl", "ebay" };
+            var analyzers = StockAnalyzer.StockAnalyzer.GetAnalyzers(tickers, 3);
+
+            foreach (var a in analyzers)
+                Console.WriteLine("Ret:{0}\t\tStdDev:{1}", a.Return, a.StdDev);
         }
     }
 }
